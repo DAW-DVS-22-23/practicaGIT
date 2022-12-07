@@ -16,7 +16,7 @@ namespace DVS_22_23_Telegrama
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new txtPrecio());
         }
     }
 }
