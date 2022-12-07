@@ -28,7 +28,7 @@ namespace DVS_22_23_Telegrama
             //Leo el telegrama DVS 22 23
             textoTelegrama = txtTelegrama.Text;
             // telegrama urgente?
-            if (cbUrgente.Checked)
+            if (rbUrgente.Checked)
                 tipoTelegrama = 'u';
             else
                 tipoTelegrama = 'o';
@@ -43,20 +43,27 @@ namespace DVS_22_23_Telegrama
             }
             //Si el telegrama es ordinario DVS 22 23
             if (tipoTelegrama == 'o')
+            {
                 if (numPalabras <= 10)
                     coste = 2.5;
                 else
                     coste = 2.5 + 0.5 * (numPalabras - 10);
-            else
-            //Si el telegrama es urgente
-            if (tipoTelegrama == 'u')
+            }
+            else if (tipoTelegrama == 'u')
+            {
                 if (numPalabras <= 10)
                     coste = 5;
                 else
                     coste = 5 + 0.75 * (numPalabras - 10); //DVS 22 23
+            }     
             else
                 coste = 0;
-            txtPrecio.Text = coste.ToString() + " euros";
+            textBox1.Text = coste.ToString() + " euros";
+        }
+
+        private void txtPrecio_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
