@@ -21,32 +21,42 @@ namespace DVS_22_23_Telegrama
         {
             string textoTelegrama;
             char tipoTelegrama = ' ';
-            int numPalabras = 0;
+            int numPalabras = 1;
+            int i = 0;
+            int letras = txtTelegrama.Text.Length;
             double coste;
-            //Leo el telegrama
+            //Leo el telegrama DVS 22 23
             textoTelegrama = txtTelegrama.Text;
             // telegrama urgente?
             if (cbUrgente.Checked)
                 tipoTelegrama = 'u';
-            //Obtengo el número de palabras que forma el telegrama
-            numPalabras = textoTelegrama.Length;
-            //Si el telegrama es ordinario
+            else
+                tipoTelegrama = 'o';
+            //Obtengo el número de palabras que forma el telegrama DVS 22 23
+            while (i < letras)
+            {
+                if (textoTelegrama[i] == ' ')
+                {
+                    numPalabras++;
+                }
+                i++;
+            }
+            //Si el telegrama es ordinario DVS 22 23
             if (tipoTelegrama == 'o')
                 if (numPalabras <= 10)
-                    coste = 25;
+                    coste = 2.5;
                 else
-                    coste = 0.5 * numPalabras;
+                    coste = 2.5 + 0.5 * (numPalabras - 10);
             else
             //Si el telegrama es urgente
             if (tipoTelegrama == 'u')
                 if (numPalabras <= 10)
                     coste = 5;
                 else
-                    coste = 5 + 0.75 * (numPalabras - 10);
+                    coste = 5 + 0.75 * (numPalabras - 10); //DVS 22 23
             else
                 coste = 0;
             txtPrecio.Text = coste.ToString() + " euros";
-
         }
     }
 }
